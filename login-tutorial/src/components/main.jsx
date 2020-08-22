@@ -6,7 +6,7 @@ import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
 import {setCurrentUser} from './store/actions/userActions.js'
 import {Container} from 'react-bootstrap';
-import axios from 'axios';
+import './style/style.css'
 var jwtDecode = require('jwt-decode');
 const Main = (props) => {
     let auth = useSelector(state => state.auth);

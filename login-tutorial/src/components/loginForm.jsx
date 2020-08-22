@@ -5,6 +5,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {useDispatch,useSelector} from 'react-redux'
 import {setCurrentUser} from './store/actions/userActions.js'
+import BackButton from './backButton.jsx';
 const FormLogin = (props) => {
     let [user,setUser] = useState('')
     let [password,setPassword] = useState('')
@@ -31,12 +32,13 @@ const FormLogin = (props) => {
             }
         })
         .catch((err) => {
-            console.log(err)
-            setError("some error")
+            console.log(err.response)
+            setError("Some error occured")
         })
     }
     return (
-       <Form>
+       <Form className="form-wrap">
+           <BackButton variant='dark'>Go back</BackButton>
            <Form.Group>
                <Form.Label>Username or Email</Form.Label>
                <Form.Control type="text" placeholder="Enter your username or email" name="identifier" value={user} onChange={handleChangeUser}/>
@@ -46,7 +48,7 @@ const FormLogin = (props) => {
                <Form.Control type="password" placeholder="Enter your username or email" name="password" value={password} onChange={handleChangePassword}/>
            </Form.Group>
            <Button variant="primary" onClick={onSubmit}>Submit</Button>
-           <span>{error}</span>
+           <div style={{color:"red"}}>{error}</div>
            <div>Don't have an account ? <Link to="/register">register here</Link></div>
        </Form>
     )

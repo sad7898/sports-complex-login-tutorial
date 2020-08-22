@@ -3,6 +3,7 @@ import {Form,Col,Row,Button} from 'react-bootstrap';
 import {useDispatch,useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 import axios from 'axios'
+import BackButton from './backButton.jsx';
 const Register = (props) => {
     let [user,setUser] = useState('')
     let [password,setPassword] = useState('')
@@ -25,11 +26,13 @@ const Register = (props) => {
             else setError("No response from server")
         })
         .catch((err) => {
+            console.log(err.response)
             setError("some error")
         })
     }
     return (
-    <Form>
+    <Form className="form-wrap">
+        <BackButton variant="dark">Go back</BackButton>
         <Form.Group>
             <Form.Label>Username</Form.Label>
             <Form.Control type="text" placeholder="Enter your username" name="username" value={user} onChange={handleChangeUser}/>

@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,WACI,aAAc,CACd,eACJ,CACA,iBACI,cACJ","file":"main.99a76f99.chunk.css","sourcesContent":[".form-wrap{\r\n    margin-top: 7%;\r\n    max-width: 500px;\r\n}\r\n.form-wrap label{\r\n    font-size: 2rem;\r\n}"]}
